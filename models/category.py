@@ -10,7 +10,6 @@ class Category:
     def __str__(self) -> str:
         return self.display_name
 
-# Catégories ULTIMES
 LENGTH = Category("length", "Longueur", "Mesures de distance dans l'espace")
 MASS = Category("mass", "Masse", "Mesures de masse stellaire")
 TEMPERATURE = Category("temperature", "Température", "Mesures thermiques cosmiques")
