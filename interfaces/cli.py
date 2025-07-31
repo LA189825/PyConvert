@@ -11,7 +11,6 @@ from core.registry import UnitRegistry
 from utils.exceptions import ConversionError
 
 class MissionControl:
-    """Interface CLI professionnelle"""
     
     def __init__(self):
         self.console = Console()
@@ -33,11 +32,9 @@ class MissionControl:
                 self.console.print(f"[red]Erreur: {e}[/red]")
     
     def _display_header(self):
-        """Affichage en-tête"""
         self.console.print(Panel("[bold blue]Convertisseur d'Unités ULTIME[/bold blue]", expand=False))
     
     def _conversion_cycle(self):
-        """Cycle de conversion"""
         # Sélection catégorie
         category = self._select_category()
         
@@ -57,7 +54,6 @@ class MissionControl:
             self.console.print(f"[red]Erreur: {e}[/red]")
     
     def _select_category(self):
-        """Sélection catégorie"""
         categories = self.registry.get_categories()
         
         table = Table(show_header=True)
@@ -77,7 +73,6 @@ class MissionControl:
                 self.console.print("[red]Choix invalide[/red]")
     
     def _show_units(self, category_name: str):
-        """Affichage unités disponibles"""
         units = self.registry.get_units_by_category(category_name)
         
         table = Table(title=f"Unités: {category_name}")
@@ -90,7 +85,6 @@ class MissionControl:
         self.console.print(table)
     
     def _get_valid_unit(self, prompt_text: str) -> str:
-        """Validation unité"""
         while True:
             unit = Prompt.ask(prompt_text)
             try:
@@ -100,11 +94,9 @@ class MissionControl:
                 self.console.print("[red]Unité inconnue[/red]")
     
     def _continue_prompt(self) -> bool:
-        """Continuer ?"""
         choice = Prompt.ask("Continuer? (o/n)", choices=["o", "n"], default="o")
         return choice.lower() == "o"
     
     def _exit_gracefully(self):
-        """Sortie propre"""
         self.console.print("[blue]Au revoir[/blue]")
         sys.exit(0)
