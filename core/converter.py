@@ -33,7 +33,6 @@ class UltimateConverter:
             raise ConversionError(f"Erreur de conversion: {str(e)}")
     
     def _convert_temperature(self, value: float, from_unit: Unit, to_unit: Unit) -> float:
-        """Conversion spécialisée pour les températures"""
         celsius = from_unit.conversion_factor(value)
         
         if to_unit.symbol == "C":
