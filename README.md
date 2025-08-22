@@ -1,7 +1,4 @@
-# Ultimate Python Unit Converter
-
-Convertisseur d'unités professionnel avec architecture modulaire.
-
+# Python Unit Converter
 ## Installation
 ```bash
 pip install -r requirements.txt
